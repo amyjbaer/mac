@@ -6,15 +6,20 @@
   <style>
       body {
           background-color: white;
+          width: 100%;
       }
       header {
           background-color: whitesmoke;
           height: 75px;
           border-bottom: 3px solid lightcyan;
           margin-top: -10px;
+          margin-left: -10px;
+          margin-right: -3px;
+          width: 100%;
       }
-      h1 {
+      #title {
           float: left;
+          margin-left: 3px;
       }
       #tabs {
           float: right;
@@ -30,9 +35,29 @@
           font-size: 17px;
       }
       #tabs li a:hover {background-color: #ddd;}
-      #tabs li a:focus, .active {background-color: #ccc;}
+      #tabs li a:focus {background-color: #ccc;}
       body > div {
           display: none;
+      }
+      #home {
+          display: block;
+          text-align: center;
+          margin-top: 50px;
+      }
+      #headshot > img{
+          width: 200px;
+          height: 200px;
+          border: 5px solid white;
+      }
+      #headshot {
+          display: inline-block;
+          box-shadow: 0px 0px 0px 1.5px #dddddd;
+      }
+      #homeInfo > p, #homeInfo > h1 {
+          margin: 0;
+      }
+      #homeInfo > h1 {
+          margin-top: 5px;
       }
   </style>
   <html>
@@ -45,11 +70,15 @@
                   $('body > div').hide();
                   $($(this).attr('href')).show();
               });
+              $('h1').click(function() {
+                 $('body > div').hide();
+                  $('#home').show();
+              });
           });
       </script>
   </head>
   <header>
-      <h1>Amy Baer</h1>
+      <h1 id="title">Amy Baer</h1>
       <ul id="tabs">
           <li><a href="#resume" class="tab" id="resumeTab">Resume</a></li>
           <li><a href="#contact" class="tab" id="contactTab">Contact</a></li>
@@ -61,6 +90,17 @@
     </div>
     <div id="contact">
         <p>contact</p>
+    </div>
+    <div id="home">
+        <div id="headshot">
+            <img src="WEB-INF/HeadShot.jpg" alt="headshot">
+        </div>
+        <div id="homeInfo">
+            <h1>Amy Baer</h1>
+            <p>
+                University of Michigan '19 <br> Computer Science Engineering <br> Scottsdale, Arizona
+            </p>
+        </div>
     </div>
   </body>
   </html>
