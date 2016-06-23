@@ -3,12 +3,64 @@
   Date: 6/20/16
   Time: 6:16 PM
   To change this template use File | Settings | File Templates.-->
-<html>
+  <style>
+      body {
+          background-color: white;
+      }
+      header {
+          background-color: whitesmoke;
+          height: 75px;
+          border-bottom: 3px solid lightcyan;
+          margin-top: -10px;
+      }
+      h1 {
+          float: left;
+      }
+      #tabs {
+          float: right;
+      }
+      #tabs li {float: right;}
+      #tabs li a {
+          display: inline-block;
+          color: black;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          transition: 0.3s;
+          font-size: 17px;
+      }
+      #tabs li a:hover {background-color: #ddd;}
+      #tabs li a:focus, .active {background-color: #ccc;}
+      body > div {
+          display: none;
+      }
+  </style>
+  <html>
   <head>
-    <title>My First Site</title>
+      <title>My First Site</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $('.tab').click(function() {
+                  $('body > div').hide();
+                  $($(this).attr('href')).show();
+              });
+          });
+      </script>
   </head>
+  <header>
+      <h1>Amy Baer</h1>
+      <ul id="tabs">
+          <li><a href="#resume" class="tab" id="resumeTab">Resume</a></li>
+          <li><a href="#contact" class="tab" id="contactTab">Contact</a></li>
+      </ul>
+  </header>
   <body>
-  <h1>Amy Baer</h1>
-  <p>My name is amy baer</p>
+    <div id="resume">
+        <p>resume</p>
+    </div>
+    <div id="contact">
+        <p>contact</p>
+    </div>
   </body>
-</html>
+  </html>
